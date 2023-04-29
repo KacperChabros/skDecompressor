@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.decompressor.Controller"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="865.0" prefWidth="1698.0" style="-fx-background-color: #4BCECF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.decompressor.Controller">
+   <children>
+      <ScrollPane hbarPolicy="ALWAYS" layoutX="456.0" layoutY="10.0" prefHeight="861.0" prefWidth="1230.0" vbarPolicy="ALWAYS">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="880.0" prefWidth="1221.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="493.0" layoutY="14.0" text="Huffman Tree">
+                     <font>
+                        <Font name="Segoe UI Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label alignment="CENTER" layoutX="97.0" layoutY="14.0" text="SKDecompress">
+         <font>
+            <Font name="Segoe UI Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="22.0" layoutY="229.0" text="Password:">
+         <font>
+            <Font name="Segoe UI Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="selectButton" layoutX="14.0" layoutY="156.0" mnemonicParsing="false" text="Select a file">
+         <font>
+            <Font name="Segoe UI Bold" size="21.0" />
+         </font>
+      </Button>
+      <TextField fx:id="pathField" editable="false" layoutX="179.0" layoutY="155.0" prefHeight="43.0" prefWidth="270.0" />
+      <PasswordField fx:id="passwordField" layoutX="179.0" layoutY="222.0" prefHeight="43.0" prefWidth="270.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="helpButton" layoutX="35.0" layoutY="381.0" mnemonicParsing="false" text="Display Help">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="decompressButton" layoutX="253.0" layoutY="381.0" mnemonicParsing="false" text="Decompress">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="messageField" layoutX="7.0" layoutY="487.0" prefHeight="375.0" prefWidth="441.0" promptText="MessageBox">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+   </children>
 </AnchorPane>
