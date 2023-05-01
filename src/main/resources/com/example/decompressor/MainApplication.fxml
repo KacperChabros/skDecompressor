@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="865.0" prefWidth="1698.0" style="-fx-background-color: #4BCECF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.decompressor.Controller">
    <children>
       <ScrollPane hbarPolicy="ALWAYS" layoutX="456.0" layoutY="10.0" prefHeight="861.0" prefWidth="1230.0" vbarPolicy="ALWAYS">
@@ -35,7 +34,7 @@
             <Font name="Segoe UI Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="selectButton" layoutX="14.0" layoutY="156.0" mnemonicParsing="false" text="Select a file">
+      <Button fx:id="selectButton" layoutX="14.0" layoutY="156.0" mnemonicParsing="false" onAction="#selectFile" text="Select a file">
          <font>
             <Font name="Segoe UI Bold" size="21.0" />
          </font>
@@ -46,17 +45,17 @@
             <Font size="18.0" />
          </font>
       </PasswordField>
-      <Button fx:id="helpButton" layoutX="35.0" layoutY="381.0" mnemonicParsing="false" text="Display Help">
+      <Button fx:id="helpButton" layoutX="35.0" layoutY="381.0" mnemonicParsing="false" onAction="#displayHelp" text="Display Help">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="decompressButton" layoutX="253.0" layoutY="381.0" mnemonicParsing="false" text="Decompress">
+      <Button fx:id="decompressButton" layoutX="253.0" layoutY="381.0" mnemonicParsing="false" onAction="#decompressFile" text="Decompress">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <TextArea fx:id="messageField" layoutX="7.0" layoutY="487.0" prefHeight="375.0" prefWidth="441.0" promptText="MessageBox">
+      <TextArea fx:id="messageField" layoutX="7.0" layoutY="487.0" prefHeight="375.0" prefWidth="441.0" promptText="MessageBox" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
