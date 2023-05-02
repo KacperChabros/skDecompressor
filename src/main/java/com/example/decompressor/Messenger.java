@@ -12,12 +12,15 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
-public class Messenger {
-    private TextArea messageField;
+public abstract class Messenger {
+    protected TextArea messageField;
+
     public Messenger(TextArea messageField) {
         this.messageField=messageField;
     }
-    public void displayMessage(String message){
-        this.messageField.setText(message);
-    }
+
+
+    public abstract void displayMessage(String message);
+
+    protected abstract void setStyle();
 }

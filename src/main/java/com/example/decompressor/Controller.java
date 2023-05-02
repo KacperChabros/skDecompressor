@@ -35,31 +35,28 @@ public class Controller{
     void decompressFile(ActionEvent e){
         SkFile file;
         try {
-            if(pathField.getText().isEmpty())
+            if(pathField.getText() == null || pathField.getText().isEmpty() || pathField.getText().isBlank())
             {
-                throw new Exception("No file has been selected");
+                throw new IOException("No file has been selected");
             }
                 file = new SkFile(pathField.getText());
                 //messageField.setText(Long.toString(file.length()));
         }
-        catch(Exception er){
-            messageField.setText("An error has occurred while trying to open the selected file: "+er.getMessage());
+        catch(IOException ex){
+            String message = "An error has occurred while trying to open the selected file: "+ex.getMessage();
+            Messenger messenger = new MessengerError(messageField, message);
+
             return;
         }
         SkDecomp sde = new SkDecomp(file,messageField);
-        sde.start();
-    }
-    public TextArea getMessageField(){
-        return this.messageField;
+        Thread skdThread = new Thread(sde);
+        skdThread.start();
+        //sde.start();
     }
     @FXML
     void displayHelp(ActionEvent e)
     {
-        //messageField.setText("I am displaying Help");
-        Messenger messenger= new Messenger(messageField);
-        messenger.displayMessage("HELP ME");
+        Messenger messenger = new MessengerNotify(messageField, "This is help");
     }
-    public void setText(String message){
-        messageField.setText(message);
-    }
+
 }
