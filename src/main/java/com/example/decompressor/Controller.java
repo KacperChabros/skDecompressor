@@ -2,6 +2,7 @@ package com.example.decompressor;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -10,8 +11,10 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller{
     @FXML
     TextField pathField;
     @FXML
@@ -46,9 +49,17 @@ public class Controller {
         SkDecomp sde = new SkDecomp(file,messageField);
         sde.start();
     }
+    public TextArea getMessageField(){
+        return this.messageField;
+    }
     @FXML
     void displayHelp(ActionEvent e)
     {
-        messageField.setText("I am displaying Help");
+        //messageField.setText("I am displaying Help");
+        Messenger messenger= new Messenger(messageField);
+        messenger.displayMessage("HELP ME");
+    }
+    public void setText(String message){
+        messageField.setText(message);
     }
 }

@@ -8,24 +8,29 @@ import java.nio.file.Files;
 
 public class SkDecomp extends Thread{
         private SkFile file;
+        //private Messenger messenger;
         private TextArea messageField;
         public SkDecomp(SkFile file,TextArea messageField){
             this.file=file;
+            //this.messenger=new Messenger();
             this.messageField=messageField;
         }
         @Override
         public void run(){
             try {
-               //file.setAllBytes(Files.readAllBytes(file.toPath()));
-                 //messageField.setText(Byte.toString(file.getAllBytes()[0]));
-                //messageField.setText(Character.toString(file.getAllBytes()[0]));
                 SkFileReader skReader= new SkFileReader(file);
+                skReader.readFile();
                this.interrupt();
                 throw new InterruptedException();
                 //SHUT UP.
             }
+            catch(InvalidFileException ex)
+            {
+                messageField.setText("File error: "+ex.getMessage());
+            }
             catch(IOException ex){
                 messageField.setText("An error has occurred while trying to open the selected file: "+ex.getMessage());
+                //messenger.displayMessage("An error has occurred while trying to open the selected file:"+ex.getMessage());
                 return;
             }
             catch(InterruptedException ex){
