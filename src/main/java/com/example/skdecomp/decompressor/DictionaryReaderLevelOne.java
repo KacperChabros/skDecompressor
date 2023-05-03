@@ -1,4 +1,6 @@
-package com.example.decompressor;
+package com.example.skdecomp.decompressor;
+
+import com.example.skdecomp.SkFile;
 
 public class DictionaryReaderLevelOne implements DictionaryReader{
     private SkFile file;

@@ -1,6 +1,4 @@
-package com.example.decompressor;
-
-import java.util.function.Function;
+package com.example.skdecomp.decompressor;
 
 public class DictionaryTrie {
     private TrieNode root;

@@ -1,10 +1,10 @@
-package com.example.decompressor;
+package com.example.skdecomp;
 
+import com.example.skdecomp.decompressor.DecompressorFactory;
+import com.example.skdecomp.decompressor.DecompressorLevel1Factory;
 import javafx.scene.control.TextArea;
-import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.nio.file.Files;
 
 public class SkDecomp implements Runnable{
         private SkFile file;
@@ -28,8 +28,7 @@ public class SkDecomp implements Runnable{
                         break;
                 }
                 file.setDictionary( factory.createDictionaryReader(file).readDictionary());
-                System.out.println("tu powinien być symbol: "+file.getDictionary().lookForSymbol("010"));
-                //file.setDictionary( new DictionaryReaderLevelOne(file).readDictionary());
+
                 //this.interrupt();
                 throw new InterruptedException();
                 //SHUT UP.

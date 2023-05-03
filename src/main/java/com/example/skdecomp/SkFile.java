@@ -1,4 +1,6 @@
-package com.example.decompressor;
+package com.example.skdecomp;
+
+import com.example.skdecomp.decompressor.DictionaryTrie;
 
 import java.io.File;
 

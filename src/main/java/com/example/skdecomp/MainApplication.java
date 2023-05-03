@@ -1,4 +1,4 @@
-package com.example.decompressor;
+package com.example.skdecomp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

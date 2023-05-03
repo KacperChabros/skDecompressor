@@ -1,4 +1,6 @@
-package com.example.decompressor;
+package com.example.skdecomp.decompressor;
+
+import com.example.skdecomp.SkFile;
 
 public class DecompressorLevel1Factory implements DecompressorFactory{
     @Override

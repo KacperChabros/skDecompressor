@@ -1,4 +1,4 @@
-package com.example.decompressor;
+package com.example.skdecomp;
 
 import java.io.IOException;
 import java.nio.file.Files;

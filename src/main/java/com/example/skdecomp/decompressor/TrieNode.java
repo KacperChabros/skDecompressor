@@ -1,4 +1,4 @@
-package com.example.decompressor;
+package com.example.skdecomp.decompressor;
 
 import java.util.HashMap;
 

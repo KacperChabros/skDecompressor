@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="865.0" prefWidth="1698.0" style="-fx-background-color: #4BCECF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.decompressor.Controller">
+<AnchorPane prefHeight="865.0" prefWidth="1698.0" style="-fx-background-color: #4BCECF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skdecomp.Controller">
    <children>
       <ScrollPane hbarPolicy="ALWAYS" layoutX="456.0" layoutY="10.0" prefHeight="861.0" prefWidth="1230.0" vbarPolicy="ALWAYS">
         <content>
@@ -55,7 +55,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <TextArea fx:id="messageField" layoutX="7.0" layoutY="487.0" prefHeight="375.0" prefWidth="441.0" promptText="MessageBox" wrapText="true">
+      <TextArea fx:id="messageField" editable="false" layoutX="7.0" layoutY="487.0" prefHeight="375.0" prefWidth="441.0" promptText="MessageBox" wrapText="true">
          <font>
             <Font name="Segoe UI" size="18.0" />
          </font>

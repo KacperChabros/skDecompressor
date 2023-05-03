@@ -1,10 +1,10 @@
-package com.example.decompressor;
+package com.example.skdecomp;
 
 import javafx.scene.control.TextArea;
 
-public class MessengerError extends Messenger{
+public class MessengerNotify extends Messenger{
 
-    public MessengerError(TextArea messageField, String message)
+    public MessengerNotify(TextArea messageField, String message)
     {
         super(messageField);
         displayMessage(message);
@@ -17,6 +17,6 @@ public class MessengerError extends Messenger{
 
     @Override
     protected void setStyle() {
-        messageField.setStyle("-fx-text-fill: red; -fx-font-size: 24px; -fx-font-weight: bold;");
+        messageField.setStyle("-fx-font-size: 20px;");
     }
 }
