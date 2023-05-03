@@ -40,7 +40,6 @@ public class Controller{
                 throw new IOException("No file has been selected");
             }
                 file = new SkFile(pathField.getText());
-                //messageField.setText(Long.toString(file.length()));
         }
         catch(IOException ex){
             String message = "An error has occurred while trying to open the selected file: "+ex.getMessage();
@@ -57,6 +56,22 @@ public class Controller{
     void displayHelp(ActionEvent e)
     {
         Messenger messenger = new MessengerNotify(messageField, "This is help");
+        /*DictionaryTrie tire = new DictionaryTrie();
+        tire.insert("111110", 'Y');
+        tire.insert("111111", 'W');
+        tire.insert("111100", 'S');
+        tire.insert("111101", 'I');
+        tire.insert("1001", 'N');
+        System.out.println(tire.lookForSymbol("1001"));
+        System.out.println(tire.lookForSymbol("111101"));
+        System.out.println(tire.lookForSymbol("111100"));
+        System.out.println(tire.lookForSymbol("111111"));
+        System.out.println(tire.lookForSymbol("111110"));
+        System.out.println(tire.lookForSymbol("110110"));
+        System.out.println(tire.lookForSymbol("1111100"));
+        System.out.println(tire.lookForSymbol("100"));
+        System.out.println(tire.lookForSymbol("1000"));*/
+
     }
 
 }

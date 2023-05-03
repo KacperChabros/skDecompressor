@@ -1,7 +1,7 @@
 package com.example.decompressor;
 
 public class Validator {
-    private final byte[] tBytes;
+    private byte[] tBytes;
     private final byte checksum;
     private boolean valid;
     private byte tmpSum;
@@ -28,6 +28,7 @@ public class Validator {
 
         if(isCyphered) {
             //TODO: decypher();
+            //return allBytes
         }
         tmpSum=tBytes[3];
         makeFileChecksum();
@@ -52,5 +53,9 @@ public class Validator {
         {
             tmpSum= (byte) (tmpSum^tBytes[i]);
         }
+    }
+    public byte[] gettBytes()
+    {
+        return this.tBytes;
     }
 }

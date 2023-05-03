@@ -11,6 +11,16 @@ public class SkFile extends File {
     private byte numberOfNotCompressedBytes;
     private byte importantBitsOfLastDictionaryByte;
     private byte [] allBytes;
+
+    public DictionaryTrie getDictionary() {
+        return dictionary;
+    }
+
+    public void setDictionary(DictionaryTrie dictionary) {
+        this.dictionary = dictionary;
+    }
+
+    private DictionaryTrie dictionary;
     public SkFile(String pathname) {
         super(pathname);
     }
