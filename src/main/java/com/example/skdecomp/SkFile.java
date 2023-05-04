@@ -39,7 +39,7 @@ public class SkFile extends File {
         return checksum;
     }
 
-    public long getDictLength(){
+    public int getDictLength(){
         return dictLength;
     }
 

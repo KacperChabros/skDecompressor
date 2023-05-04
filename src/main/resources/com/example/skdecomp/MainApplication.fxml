@@ -29,7 +29,7 @@
             <Font name="Segoe UI Bold" size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="22.0" layoutY="229.0" text="Password:">
+      <Label alignment="CENTER" layoutX="14.0" layoutY="301.0" text="Password:">
          <font>
             <Font name="Segoe UI Bold" size="24.0" />
          </font>
@@ -40,7 +40,7 @@
          </font>
       </Button>
       <TextField fx:id="pathField" editable="false" layoutX="179.0" layoutY="155.0" prefHeight="43.0" prefWidth="270.0" />
-      <PasswordField fx:id="passwordField" layoutX="179.0" layoutY="222.0" prefHeight="43.0" prefWidth="270.0">
+      <PasswordField fx:id="passwordField" layoutX="179.0" layoutY="294.0" prefHeight="43.0" prefWidth="270.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -60,5 +60,15 @@
             <Font name="Segoe UI" size="18.0" />
          </font>
       </TextArea>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="232.0" text="Outfile name:">
+         <font>
+            <Font name="Segoe UI Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="outfileField" layoutX="179.0" layoutY="227.0" prefHeight="39.0" prefWidth="270.0" promptText="(with extension)">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

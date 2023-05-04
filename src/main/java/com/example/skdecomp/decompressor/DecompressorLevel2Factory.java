@@ -4,14 +4,14 @@ import com.example.skdecomp.SkFile;
 
 import java.io.File;
 
-public class DecompressorLevel1Factory implements DecompressorFactory{
+public class DecompressorLevel2Factory implements DecompressorFactory{
     @Override
     public DictionaryReader createDictionaryReader(SkFile file) {
-        return new DictionaryReaderLevelOne(file);
+        return new DictionaryReaderLevelTwo(file);
     }
 
     @Override
     public Decompressor createDecompressor(SkFile file, File outfile) {
-        return new DecompressorLevelOne(file, outfile);
+        return new DecompressorLevelTwo(file, outfile);
     }
 }
