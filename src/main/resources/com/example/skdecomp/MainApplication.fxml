@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="865.0" prefWidth="1698.0" style="-fx-background-color: #4BCECF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.decompressor.Controller">
+<AnchorPane prefHeight="865.0" prefWidth="1698.0" style="-fx-background-color: #4BCECF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skdecomp.Controller">
    <children>
       <ScrollPane hbarPolicy="ALWAYS" layoutX="456.0" layoutY="10.0" prefHeight="861.0" prefWidth="1230.0" vbarPolicy="ALWAYS">
         <content>
@@ -29,7 +29,7 @@
             <Font name="Segoe UI Bold" size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="22.0" layoutY="229.0" text="Password:">
+      <Label alignment="CENTER" layoutX="14.0" layoutY="301.0" text="Password:">
          <font>
             <Font name="Segoe UI Bold" size="24.0" />
          </font>
@@ -40,7 +40,7 @@
          </font>
       </Button>
       <TextField fx:id="pathField" editable="false" layoutX="179.0" layoutY="155.0" prefHeight="43.0" prefWidth="270.0" />
-      <PasswordField fx:id="passwordField" layoutX="179.0" layoutY="222.0" prefHeight="43.0" prefWidth="270.0">
+      <PasswordField fx:id="passwordField" layoutX="179.0" layoutY="294.0" prefHeight="43.0" prefWidth="270.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -55,10 +55,20 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <TextArea fx:id="messageField" layoutX="7.0" layoutY="487.0" prefHeight="375.0" prefWidth="441.0" promptText="MessageBox" wrapText="true">
+      <TextArea fx:id="messageField" editable="false" layoutX="7.0" layoutY="487.0" prefHeight="375.0" prefWidth="441.0" promptText="MessageBox" wrapText="true">
          <font>
             <Font name="Segoe UI" size="18.0" />
          </font>
       </TextArea>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="232.0" text="Outfile name:">
+         <font>
+            <Font name="Segoe UI Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="outfileField" layoutX="179.0" layoutY="227.0" prefHeight="39.0" prefWidth="270.0" promptText="(with extension)">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

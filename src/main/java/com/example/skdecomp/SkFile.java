@@ -1,4 +1,6 @@
-package com.example.decompressor;
+package com.example.skdecomp;
+
+import com.example.skdecomp.decompressor.DictionaryTrie;
 
 import java.io.File;
 
@@ -11,6 +13,16 @@ public class SkFile extends File {
     private byte numberOfNotCompressedBytes;
     private byte importantBitsOfLastDictionaryByte;
     private byte [] allBytes;
+
+    public DictionaryTrie getDictionary() {
+        return dictionary;
+    }
+
+    public void setDictionary(DictionaryTrie dictionary) {
+        this.dictionary = dictionary;
+    }
+
+    private DictionaryTrie dictionary;
     public SkFile(String pathname) {
         super(pathname);
     }
@@ -27,7 +39,7 @@ public class SkFile extends File {
         return checksum;
     }
 
-    public long getDictLength(){
+    public int getDictLength(){
         return dictLength;
     }
 

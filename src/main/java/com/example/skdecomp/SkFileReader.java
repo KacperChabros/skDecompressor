@@ -1,4 +1,4 @@
-package com.example.decompressor;
+package com.example.skdecomp;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,6 +14,7 @@ public class SkFileReader {
 
     public void readFile() throws InvalidFileException{
         validator.validate();
+        this.file.setAllBytes(validator.gettBytes());
         skReadHeader();
     }
 
@@ -48,4 +49,8 @@ public class SkFileReader {
         file.setNumberOfNotCompressedBytes((byte) (flag2&0b00000011));
     }
 
+    public SkFile getFile()
+    {
+        return this.file;
+    }
 }
