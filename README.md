@@ -4,6 +4,8 @@
 ## Technologies
 * Java
 * JavaFX
+### Design Patterns
+* Abstract Factory
 
 ## Features
 * decompress file with one out of 4 compression levels
