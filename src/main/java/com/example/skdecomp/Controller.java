@@ -34,6 +34,10 @@ public class Controller{
     @FXML
     Button treeButton;
     @FXML
+    TextField passwordField;
+    @FXML
+    AnchorPane mainPane;
+    @FXML
     void selectFile(ActionEvent e)
     {
         FileChooser fc = new FileChooser();
@@ -48,6 +52,7 @@ public class Controller{
     @FXML
     void decompressFile(ActionEvent e){
         //SkFile file;
+        String password=passwordField.getText();
         File outfile = null;
         Messenger messenger;
         try {
@@ -79,6 +84,8 @@ public class Controller{
                 file=file2;
             }
         };
+        this.file.setPassword(password);
+        System.out.println(file.getPassword());
         SkDecomp sde = new SkDecomp(file, outfile ,messageField ,canvas, listener);
         Thread skdThread = new Thread(sde);
         skdThread.start();
@@ -127,20 +134,7 @@ public class Controller{
     void displayHelp(ActionEvent e)
     {
         Messenger messenger = new MessengerNotify(messageField, "This is help");
-        Line lineLeft = new Line(1300,70,1240,130);
-        Line lineRight = new Line(1300,70,1360,130);
-        Circle circle = new Circle(1300,40,30);
-        Text txt = new Text(1285,45,"256:P");
-        circle.setFill(null);
-        circle.setStroke(Paint.valueOf("black"));
-        /* btVisualizer=new BTVisualizer(canvas,sde.getFile().getDictionary());
-        btVisualizer.visualize();*/
-        canvasPane.setVvalue(0);
-        canvasPane.setHvalue(0.5);
-        canvas.getChildren().add(lineLeft);
-        canvas.getChildren().add(lineRight);
-        canvas.getChildren().add(circle);
-        canvas.getChildren().add(txt);
+
 
     }
     @FXML
@@ -159,4 +153,8 @@ public class Controller{
         }
         treeButton.setDisable(true);
     }
+    /*@FXML
+    public void initialize() {
+        messageField.setPrefHeight(mainPane.getHeight()-messageField.getTranslateY());
+    }*/
 }
