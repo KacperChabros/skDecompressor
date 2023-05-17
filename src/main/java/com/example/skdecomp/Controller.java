@@ -3,24 +3,32 @@ package com.example.skdecomp;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Screen;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Controller{
+public class Controller implements Initializable {
     private SkFile file;
+    private double ScaleX;
+    private double ScaleY;
     @FXML
     TextField pathField;
     @FXML
@@ -107,5 +115,25 @@ public class Controller{
             messenger= new MessengerError(messageField,"Not CL 1");
         }
         treeButton.setDisable(true);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        messageField.setPrefHeight(primaryScreenBounds.getHeight()-messageField.getLayoutY()-80);
+        canvasPane.setPrefHeight(primaryScreenBounds.getHeight()-canvasPane.getLayoutY()-80);
+        canvasPane.setPrefWidth(primaryScreenBounds.getWidth()-canvasPane.getLayoutX()-80);
+        ScaleX=canvasPane.getScaleX();
+        ScaleY=canvasPane.getScaleY();
+    }
+    @FXML
+    void zoomPane(ScrollEvent e)
+    {
+        /*ScaleX-=0.5;
+        double deltaX=e.getDeltaX();
+        canvasPane.translateXProperty().set(canvasPane.getTranslateX()+deltaX);
+        double deltaY=e.getDeltaY();
+        canvasPane.translateYProperty().set(canvasPane.getTranslateY()+deltaY);
+        */
     }
 }
