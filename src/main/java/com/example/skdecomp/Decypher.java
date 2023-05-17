@@ -23,7 +23,6 @@ public class Decypher {
         byte flag1=tabBytes[2];
         flag1=(byte)(flag1>>6);
         this.compressLevel=(byte)(flag1&0b00000011);
-        System.out.println(this.compressLevel);
     }
     private void makeDictLength(){
         int tempDictLength=0;
@@ -35,7 +34,6 @@ public class Decypher {
 
         tempDictLength+=tabBytes[6]&0xff;
         this.dictLength=tempDictLength;
-        System.out.println(this.dictLength);
     }
     public void runDecypher(){
         if(this.compressLevel!=0)
@@ -48,11 +46,9 @@ public class Decypher {
     private void runDecypherZero(){
         for(int i=8;i<tabBytes.length;i++)
         {
-            //System.out.print("Przed["+i+"]:"+tabBytes[i]+":"+(char)tabBytes[i]);
             text=tabBytes[i]-'A';
             charkey=key.charAt(i%this.keyLength)-'A';
-           tabBytes[i]= (byte) ((text^charkey)+'A');
-            //System.out.println("Po["+i+"]:"+tabBytes[i]+":"+(char)tabBytes[i]);
+            tabBytes[i]= (byte) ((text^charkey)+'A');
         }
     }
     private void runDecypherNotZero(){

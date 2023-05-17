@@ -32,7 +32,6 @@ class DictionaryReaderLevelTwoTest {
     @Description("Symbol of \"101\" should be represented by 1782")
     public void symbolOf101ShouldBeRepresentedBy1782()
     {
-        //assertEquals(1,1);
         assertEquals(1782, levelTwo.getDictionary().lookForSymbol("101").charValue());
     }
 
@@ -41,7 +40,6 @@ class DictionaryReaderLevelTwoTest {
     @Description("Symbol of \"0101\" should be represented by 518")
     public void symbolOf0101ShouldBeRepresentedBy518()
     {
-        //assertEquals(1,1);
         assertEquals(518, levelTwo.getDictionary().lookForSymbol("0101").charValue());
     }
 
@@ -50,7 +48,6 @@ class DictionaryReaderLevelTwoTest {
     @Description("Symbol of \"10010\" should be represented by 116")
     public void symbolOf10010ShouldBRepresentedBy116()
     {
-        //assertEquals(1,1);
         assertEquals(116, levelTwo.getDictionary().lookForSymbol("10010").charValue());
     }
 
@@ -59,7 +56,6 @@ class DictionaryReaderLevelTwoTest {
     @Description("Symbol of \"10001\" should be represented by code 103")
     public void symbolOf10001ShouldBeRepresentedBy10()
     {
-        //assertEquals(1,1);
         assertEquals(103, levelTwo.getDictionary().lookForSymbol("10001").charValue());
     }
 

@@ -19,8 +19,6 @@ class DictionaryTrieTest {
         dictionaryTrie.insert("1", 'E');
     }
 
-    /*
-        for the future
     @Test
     @DisplayName("Number of symbols test")
     public void numberOfSymbolsShouldBe5()
@@ -33,7 +31,7 @@ class DictionaryTrieTest {
     public void longestCodeLengthShouldBe4()
     {
         assertEquals(4, dictionaryTrie.getLongestCodeLength());
-    }*/
+    }
 
     @Test
     @DisplayName("Symbol with code \"00\" is A")

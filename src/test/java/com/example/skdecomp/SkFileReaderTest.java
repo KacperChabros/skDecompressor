@@ -28,7 +28,8 @@ class SkFileReaderTest {
         notCypheredLevelTwo = new SkFile("src\\test\\testFiles\\outfilesNotCyphered\\k12.png");
         notCypheredLevelThree = new SkFile("src\\test\\testFiles\\outfilesNotCyphered\\k16.png");
         notCypheredLevelThreeSmallFile = new SkFile("src\\test\\testFiles\\outfilesNotCyphered\\outfile16");
-        //cypheredLevelTwo = new SkFile("src\\test\\testFiles\\outfilesCyphered\\k12.png");
+        cypheredLevelTwo = new SkFile("src\\test\\testFiles\\outfilesCyphered\\k12.png");
+        cypheredLevelTwo.setPassword("haslo");
 
         fileReader = new SkFileReader(notCypheredLevelZero);
         fileReader.readFile();
@@ -50,11 +51,10 @@ class SkFileReaderTest {
         fileReader.readFile();
         notCypheredLevelThreeSmallFile = fileReader.getFile();
 
-        /*fileReader = new SkFileReader(cypheredLevelTwo);
+        fileReader = new SkFileReader(cypheredLevelTwo);
         fileReader.readFile();
         cypheredLevelTwo = fileReader.getFile();
 
-         */
     }
 
     @Test
@@ -67,18 +67,11 @@ class SkFileReaderTest {
     }
 
     @Test
-    @DisplayName("Test extraction of cyphered flag") //not supported yet
+    @DisplayName("Test extraction of cyphered flag")
     public void assertCorrectCypheredExtraction() throws InvalidFileException, IOException {
-        //needs to be initialized here in order not to fail setupAll
-        cypheredLevelTwo = new SkFile("src\\test\\testFiles\\outfilesCyphered\\k12.png");
-        fileReader = new SkFileReader(cypheredLevelTwo);
-        fileReader.readFile();
-        cypheredLevelTwo = fileReader.getFile();
-
         assertEquals(false, notCypheredLevelTwo.getCyphered());
         assertEquals(true, cypheredLevelTwo.getCyphered());
-        //assertEquals(2, notCypheredLevelTwo.getCompressLevel());
-        //assertEquals(3, notCypheredLevelThree.getCompressLevel());
+
     }
 
     @Test

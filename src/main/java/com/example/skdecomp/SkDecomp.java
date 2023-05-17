@@ -3,7 +3,6 @@ package com.example.skdecomp;
 import com.example.skdecomp.decompressor.*;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Circle;
 
 import java.io.File;
 import java.io.IOException;
@@ -50,16 +49,7 @@ public class SkDecomp implements Runnable{
                 factory.createDecompressor(file, outfile).decompress();
                 messenger = new MessengerSuccess(messageField, "Done!");
                 listener.threadFinished(file);
-                /*if(file.getCompressLevel()==1)
-                {
-                    //BTVisualizer btVisualizer=new BTVisualizer(canvas,file.getDictionary());
-                    //btVisualizer.visualize();
-                    //Circle circle = new Circle(1300,40,30);
-                    //canvas.getChildren().add(circle);
-                }*/
-                //this.interrupt();
-                throw new InterruptedException();
-                //SHUT UP.
+                //throw new InterruptedException();
             }
             catch(InvalidFileException ex)
             {
@@ -70,11 +60,11 @@ public class SkDecomp implements Runnable{
                 String  message = "An error has occurred while trying to open the selected file: "+ex.getMessage();
                 messenger = new MessengerError(messageField, message);
                 outfile.delete();
-                return;
+                //return;
             }
-            catch(InterruptedException ex){
+            /*catch(InterruptedException ex){
                 return;
-            }
+            }*/
 
         }
 

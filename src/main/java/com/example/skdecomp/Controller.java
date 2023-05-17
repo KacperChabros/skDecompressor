@@ -51,7 +51,6 @@ public class Controller{
     }
     @FXML
     void decompressFile(ActionEvent e){
-        //SkFile file;
         String password=passwordField.getText();
         File outfile = null;
         Messenger messenger;
@@ -79,72 +78,25 @@ public class Controller{
         MyThreadListener listener = new MyThreadListener() {
             @Override
             public void threadFinished(SkFile file2) {
-                //helpButton.setDisable(false);
                 treeButton.setDisable(false);
                 file=file2;
             }
         };
         this.file.setPassword(password);
-        System.out.println(file.getPassword());
         SkDecomp sde = new SkDecomp(file, outfile ,messageField ,canvas, listener);
         Thread skdThread = new Thread(sde);
         skdThread.start();
-        /*try {
-            skdThread.join();
-        } catch (InterruptedException ex) {
-            throw new RuntimeException(ex);
-        }*/
-        /*
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                BTVisualizer btVisualizer=new BTVisualizer(canvas,sde.getFile().getDictionary());
-                btVisualizer.visualize();
-                canvasPane.setVvalue(0);
-                canvasPane.setHvalue(0.5);
-            }
-        });*/
-        /*
-        BTVisualizer btVisualizer=new BTVisualizer(canvas,sde.getFile().getDictionary());
-        btVisualizer.visualize();
-        canvasPane.setVvalue(0);
-        canvasPane.setHvalue((double) 1 /2);*/
-        /*
-        final BTVisualizer[] btVisualizer = new BTVisualizer[1];
-        Timer timer = new Timer("Timer");
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                if (!skdThread.isAlive())
-                {
-                    btVisualizer[0] = new BTVisualizer(canvas, sde.getFile().getDictionary());
-                    btVisualizer[0].visualize();
-                    timer.cancel();
-                }
-            }
-        };
-        timer.scheduleAtFixedRate(task, 0, 250);
-*/
-
-        /*if(!skdThread.isAlive())
-            messenger = new MessengerSuccess(messageField, "Done!");*/
-        //sde.start();
     }
     @FXML
     void displayHelp(ActionEvent e)
     {
         Messenger messenger = new MessengerNotify(messageField, "This is help");
-
-
     }
     @FXML
     void displayTree(ActionEvent e){
         canvasPane.setVvalue(0);
         canvasPane.setHvalue(0.5);
         canvas.getChildren().clear();
-        //canvas.setMaxWidth(5000);
-        //canvas.setPrefWidth(5000);
-        //System.out.println(canvas.getWidth());
         Messenger messenger;
         if(file.getCompressLevel()==1)
         {
@@ -156,8 +108,4 @@ public class Controller{
         }
         treeButton.setDisable(true);
     }
-    /*@FXML
-    public void initialize() {
-        messageField.setPrefHeight(mainPane.getHeight()-messageField.getTranslateY());
-    }*/
 }

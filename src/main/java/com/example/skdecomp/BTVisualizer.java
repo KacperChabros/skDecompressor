@@ -20,46 +20,22 @@ public class BTVisualizer{
         this.canvas=canvas;
         this.dictionary=dictionary;
         this.maxDepthLevel = dictionary.getLongestCodeLength();
-        //System.out.println(maxDepthLevel);
         this.canvasWidth = 500000;
-        //this.canvasWidth=10+(dictionary.getNumberOfSymbols()*(120))+ ((dictionary.getNumberOfSymbols()-1)*120)+10;//10 - padding.First is diameter of nodes. Second is horizontal padding between two nodes.
         this.canvasHeight=10+60*(dictionary.getLongestCodeLength()+1)+ dictionary.getLongestCodeLength()*60+10;//10 - padding top. Then is diameter of nodes. Then vertical padding between nodes.
-        //canvas.setMaxWidth(canvasWidth);
-        //canvas.setPrefWidth(canvasWidth);
         canvas.setMaxHeight(canvasHeight);
         canvas.setPrefHeight(canvasHeight);
-        //canvas.getChildren().clear();
-        //System.out.println(canvas.getWidth() + "|" + canvasWidth);
     }
-    /*@Override
-    public void run() {
-        visualize();
-    }*/
     public void visualize(){
-        /*
-        Circle root = new Circle(canvasWidth /2,40,30);
-        root.setFill(null);
-        root.setStroke(Paint.valueOf("black"));
-        this.canvas.getChildren().add(root);*/
-        //System.out.println(dictionary.getNumberOfSymbols());
         drawRecursive(canvasWidth/2,40,dictionary.getRoot(),0);
-
     }
     public void drawRecursive(double x, double y, TrieNode node,int currentDepthLevel){
-        /*if(dictionary.getNumberOfSymbols()>=60){
-            currentDepthLevel=currentDepthLevel+3;
-        }else {
-            currentDepthLevel++;
-        }*/
-
         double currentPadding = (1000 * (maxDepthLevel - currentDepthLevel) + Math.pow(2, (maxDepthLevel - currentDepthLevel))) / Math.pow(2, currentDepthLevel-1);
-        //double currentPadding = 20 * Math.pow(2, maxDepthLevel) / Math.pow(2, currentDepthLevel);
-        //double currentPadding=canvasWidth/(2*(currentDepthLevel*currentDepthLevel));
         Circle circle = new Circle(x,y,30);
         circle.setFill(null);
         circle.setStroke((Paint.valueOf("black")));
         currentDepthLevel++;
         this.canvas.getChildren().add(circle);
+
         if(node.getChildren().containsKey('0'))
         {
             Line lineLeft = new Line(x,y+30,x-currentPadding-30,y+90);

@@ -32,7 +32,6 @@ class DictionaryReaderLevelThreeTest {
     @Description("Symbol of \"100\" should be represented by 25888")
     public void symbolOf100ShouldBeRepresentedBy25888()
     {
-        //assertEquals(1,1);
         assertEquals(25888, levelThree.getDictionary().lookForSymbol("100").charValue());
     }
 
@@ -41,7 +40,6 @@ class DictionaryReaderLevelThreeTest {
     @Description("Symbol of \"0000\" should be represented by 21359")
     public void symbolOf0000ShouldBeRepresentedBy21359()
     {
-        //assertEquals(1,1);
         assertEquals(21359, levelThree.getDictionary().lookForSymbol("0000").charValue());
     }
 
@@ -50,7 +48,6 @@ class DictionaryReaderLevelThreeTest {
     @Description("Symbol of \"11111\" should be represented by 27680")
     public void symbolOf11111ShouldBRepresentedBy27680()
     {
-        //assertEquals(1,1);
         assertEquals(27680, levelThree.getDictionary().lookForSymbol("11111").charValue());
     }
 
@@ -59,7 +56,6 @@ class DictionaryReaderLevelThreeTest {
     @Description("Symbol of \"0110\" should be represented by code 8295")
     public void symbolOf0110ShouldBeRepresentedBy8295()
     {
-        //assertEquals(1,1);
         assertEquals(8295, levelThree.getDictionary().lookForSymbol("0110").charValue());
     }
 

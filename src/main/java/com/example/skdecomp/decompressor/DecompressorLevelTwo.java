@@ -80,7 +80,6 @@ public class DecompressorLevelTwo implements Decompressor{
         {
             outputStream.write( allBytes[i] );
         }
-       //writer.close();
        outputStream.close();
     }
 }

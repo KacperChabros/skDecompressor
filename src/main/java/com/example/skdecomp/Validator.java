@@ -24,9 +24,9 @@ public class Validator {
             throw new InvalidFileException("File has not been compressed by skComp");
         }
         boolean isCyphered=((tBytes[2]&0b00100000)!=0);
-        byte flag1= tBytes[2];
+        /*byte flag1= tBytes[2];
         flag1= (byte) (flag1>>6);
-        flag1= (byte) (flag1&0b00000011);
+        flag1= (byte) (flag1&0b00000011);*/
 
         if(isCyphered && !this.password.isBlank()) {
             Decypher decypher = new Decypher(this.tBytes,this.checksum,this.password);
