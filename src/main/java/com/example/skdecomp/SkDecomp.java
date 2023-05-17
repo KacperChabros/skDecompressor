@@ -2,6 +2,8 @@ package com.example.skdecomp;
 
 import com.example.skdecomp.decompressor.*;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Circle;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,11 +12,15 @@ public class SkDecomp implements Runnable{
         private SkFile file;
         private File outfile;
         private TextArea messageField;
+        private AnchorPane canvas;
+        private MyThreadListener listener;
 
-        public SkDecomp(SkFile file, File outfile,TextArea messageField){
+        public SkDecomp(SkFile file, File outfile, TextArea messageField, AnchorPane canvas, MyThreadListener listener){
             this.file=file;
             this.messageField=messageField;
             this.outfile = outfile;
+            this.canvas=canvas;
+            this.listener = listener;
         }
         @Override
         public void run(){
@@ -43,6 +49,14 @@ public class SkDecomp implements Runnable{
                 file.setDictionary( factory.createDictionaryReader(file).readDictionary());
                 factory.createDecompressor(file, outfile).decompress();
                 messenger = new MessengerSuccess(messageField, "Done!");
+                listener.threadFinished(file);
+                /*if(file.getCompressLevel()==1)
+                {
+                    //BTVisualizer btVisualizer=new BTVisualizer(canvas,file.getDictionary());
+                    //btVisualizer.visualize();
+                    //Circle circle = new Circle(1300,40,30);
+                    //canvas.getChildren().add(circle);
+                }*/
                 //this.interrupt();
                 throw new InterruptedException();
                 //SHUT UP.
@@ -61,5 +75,10 @@ public class SkDecomp implements Runnable{
             catch(InterruptedException ex){
                 return;
             }
+
         }
+
+    public SkFile getFile() {
+        return file;
+    }
 }

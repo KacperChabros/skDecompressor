@@ -2,10 +2,13 @@ package com.example.skdecomp.decompressor;
 
 public class DictionaryTrie {
     private TrieNode root;
-
+    private int numberOfSymbols;
+    private int longestCodeLength;
     public DictionaryTrie()
     {
         this.root = new TrieNode();
+        this.numberOfSymbols=0;
+        this.longestCodeLength =0;
     }
 
     public void insert(String code, char symbol)
@@ -20,6 +23,11 @@ public class DictionaryTrie {
         }
         current.setEndOfWord(true);
         current.setSymbol(symbol);
+        if(code.length()>=this.longestCodeLength)
+        {
+            this.longestCodeLength =code.length();
+        }
+        this.numberOfSymbols++;
     }
 
     public Character lookForSymbol(String code){
@@ -37,5 +45,15 @@ public class DictionaryTrie {
         {
             return null;
         }
+    }
+    public int getNumberOfSymbols() {
+        return this.numberOfSymbols;
+    }
+    public int getLongestCodeLength() {
+        return this.longestCodeLength;
+    }
+
+    public TrieNode getRoot() {
+        return root;
     }
 }

@@ -9,7 +9,7 @@ public class SkFileReader {
     public SkFileReader(SkFile file) throws IOException{
         this.file=file;
         this.file.setAllBytes(Files.readAllBytes(this.file.toPath()));
-        this.validator=new Validator(file.getAllBytes());
+        this.validator=new Validator(file.getAllBytes(),file.getPassword());
     }
 
     public void readFile() throws InvalidFileException{

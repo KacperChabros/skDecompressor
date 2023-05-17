@@ -13,6 +13,15 @@ public class SkFile extends File {
     private byte numberOfNotCompressedBytes;
     private byte importantBitsOfLastDictionaryByte;
     private byte [] allBytes;
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public DictionaryTrie getDictionary() {
         return dictionary;

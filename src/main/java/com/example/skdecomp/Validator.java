@@ -5,10 +5,12 @@ public class Validator {
     private final byte checksum;
     private boolean valid;
     private byte tmpSum;
-    public Validator(byte[] tBytes){
+    private String password;
+    public Validator(byte[] tBytes,String password){
         this.tBytes=tBytes;
         this.checksum= (byte) 0b10001001;
         this.valid=false;
+        this.password=password;
     }
     public void validate() throws InvalidFileException{
         if(tBytes.length<8)
@@ -26,9 +28,10 @@ public class Validator {
         flag1= (byte) (flag1>>6);
         flag1= (byte) (flag1&0b00000011);
 
-        if(isCyphered) {
-            //TODO: decypher();
-            //return allBytes
+        if(isCyphered && !this.password.isBlank()) {
+            Decypher decypher = new Decypher(this.tBytes,this.checksum,this.password);
+            decypher.runDecypher();
+            this.tBytes= decypher.getTabBytes();
         }
         tmpSum=tBytes[3];
         makeFileChecksum();
