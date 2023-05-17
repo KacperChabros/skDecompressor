@@ -139,8 +139,12 @@ public class Controller{
     }
     @FXML
     void displayTree(ActionEvent e){
-        //canvasPane.setVvalue(0);
-        //canvasPane.setHvalue(0.5);
+        canvasPane.setVvalue(0);
+        canvasPane.setHvalue(0.5);
+        canvas.getChildren().clear();
+        //canvas.setMaxWidth(5000);
+        //canvas.setPrefWidth(5000);
+        //System.out.println(canvas.getWidth());
         Messenger messenger;
         if(file.getCompressLevel()==1)
         {
@@ -149,7 +153,6 @@ public class Controller{
 
         }else{
             messenger= new MessengerError(messageField,"Not CL 1");
-
         }
         treeButton.setDisable(true);
     }
