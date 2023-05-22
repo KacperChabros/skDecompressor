@@ -28,7 +28,7 @@ public class BTVisualizer{
     public void visualize(){
         drawRecursive(canvasWidth/2,40,dictionary.getRoot(),0);
     }
-    public void drawRecursive(double x, double y, TrieNode node,int currentDepthLevel){
+   private void drawRecursive(double x, double y, TrieNode node,int currentDepthLevel){
         double currentPadding = (1000 * (maxDepthLevel - currentDepthLevel) + Math.pow(2, (maxDepthLevel - currentDepthLevel))) / Math.pow(2, currentDepthLevel-1);
         Circle circle = new Circle(x,y,30);
         circle.setFill(null);

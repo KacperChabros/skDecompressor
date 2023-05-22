@@ -49,7 +49,6 @@ public class SkDecomp implements Runnable{
                 factory.createDecompressor(file, outfile).decompress();
                 messenger = new MessengerSuccess(messageField, "Done!");
                 listener.threadFinished(file);
-                //throw new InterruptedException();
             }
             catch(InvalidFileException ex)
             {
@@ -60,12 +59,7 @@ public class SkDecomp implements Runnable{
                 String  message = "An error has occurred while trying to open the selected file: "+ex.getMessage();
                 messenger = new MessengerError(messageField, message);
                 outfile.delete();
-                //return;
             }
-            /*catch(InterruptedException ex){
-                return;
-            }*/
-
         }
 
     public SkFile getFile() {

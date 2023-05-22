@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="mainPane" prefHeight="865.0" prefWidth="1698.0" style="-fx-background-color: #4BCECF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skdecomp.Controller">
    <children>
-      <ScrollPane fx:id="canvasPane" hbarPolicy="ALWAYS" layoutX="456.0" layoutY="71.0" onZoom="#zoomPane" prefHeight="800.0" prefWidth="1230.0" vbarPolicy="ALWAYS">
+      <ScrollPane fx:id="canvasPane" hbarPolicy="ALWAYS" layoutX="456.0" layoutY="71.0" prefHeight="800.0" prefWidth="1230.0" vbarPolicy="ALWAYS">
         <content>
           <AnchorPane fx:id="canvas" maxHeight="10000.0" maxWidth="500000.0" minHeight="0.0" minWidth="0.0" prefHeight="10000.0" prefWidth="500000.0" />
         </content>
@@ -72,5 +72,13 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Button fx:id="zoomInButton" layoutX="806.0" layoutY="23.0" mnemonicParsing="false" onAction="#zoomIn" prefHeight="39.0" prefWidth="122.0" text="Zoom In">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="zoomOutButton" layoutX="1205.0" layoutY="23.0" mnemonicParsing="false" onAction="#zoomOut" prefHeight="39.0" prefWidth="122.0" text="Zoom Out">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
    </children>
 </AnchorPane>

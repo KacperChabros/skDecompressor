@@ -1,13 +1,12 @@
 package com.example.skdecomp;
 
-import jdk.jfr.Description;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SkFileReaderTest {
     private static SkFile notCypheredLevelZero;

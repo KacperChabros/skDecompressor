@@ -14,6 +14,7 @@ public class SkFile extends File {
     private byte importantBitsOfLastDictionaryByte;
     private byte [] allBytes;
     private String password;
+    private DictionaryTrie dictionary;
 
     public String getPassword() {
         return password;
@@ -31,7 +32,6 @@ public class SkFile extends File {
         this.dictionary = dictionary;
     }
 
-    private DictionaryTrie dictionary;
     public SkFile(String pathname) {
         super(pathname);
     }
