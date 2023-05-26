@@ -11,14 +11,12 @@ public class SkDecomp implements Runnable{
         private SkFile file;
         private File outfile;
         private TextArea messageField;
-        private AnchorPane canvas;
         private MyThreadListener listener;
 
-        public SkDecomp(SkFile file, File outfile, TextArea messageField, AnchorPane canvas, MyThreadListener listener){
+        public SkDecomp(SkFile file, File outfile, TextArea messageField, MyThreadListener listener){
             this.file=file;
             this.messageField=messageField;
             this.outfile = outfile;
-            this.canvas=canvas;
             this.listener = listener;
         }
         @Override
@@ -48,17 +46,19 @@ public class SkDecomp implements Runnable{
                 file.setDictionary( factory.createDictionaryReader(file).readDictionary());
                 factory.createDecompressor(file, outfile).decompress();
                 messenger = new MessengerSuccess(messageField, "Done!");
-                listener.threadFinished(file);
+                listener.threadFinishedSuccesfully(file);
             }
             catch(InvalidFileException ex)
             {
                 messenger = new MessengerError(messageField, "File error: "+ex.getMessage());
                 outfile.delete();
+                listener.threadFinished();
             }
             catch(IOException ex){
                 String  message = "An error has occurred while trying to open the selected file: "+ex.getMessage();
                 messenger = new MessengerError(messageField, message);
                 outfile.delete();
+                listener.threadFinished();
             }
         }
 

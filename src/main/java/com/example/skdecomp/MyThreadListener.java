@@ -1,5 +1,6 @@
 package com.example.skdecomp;
 
 public interface MyThreadListener {
-    void threadFinished(SkFile file);
+    void threadFinished();
+    void threadFinishedSuccesfully(SkFile file);
 }

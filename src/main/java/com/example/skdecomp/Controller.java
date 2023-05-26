@@ -36,6 +36,8 @@ public class Controller implements Initializable {
     @FXML
     AnchorPane mainPane;
     @FXML
+    Button decompressButton;
+    @FXML
     void selectFile(ActionEvent e)
     {
         FileChooser fc = new FileChooser();
@@ -76,13 +78,20 @@ public class Controller implements Initializable {
 
         MyThreadListener listener = new MyThreadListener() {
             @Override
-            public void threadFinished(SkFile file2) {
+            public void threadFinished() {
+                decompressButton.setDisable(false);
+            }
+
+            @Override
+            public void threadFinishedSuccesfully(SkFile file2) {
                 treeButton.setDisable(false);
                 file=file2;
+                this.threadFinished();
             }
         };
         this.file.setPassword(password);
-        SkDecomp sde = new SkDecomp(file, outfile ,messageField ,canvas, listener);
+        decompressButton.setDisable(true);
+        SkDecomp sde = new SkDecomp(file, outfile, messageField, listener);
         Thread skdThread = new Thread(sde);
         skdThread.start();
     }
